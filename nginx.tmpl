@@ -33,6 +33,7 @@ location {{ .Path }} {
 		fastcgi_pass {{ trim .Upstream }};
 	{{ else }}
 		proxy_pass {{ trim .Proto }}://{{ trim .Upstream }};
+		rewrite ^{{ .Path }}/(.*) /$1 break;
 	{{ end }}
 	{{ if (exists (printf "/etc/nginx/htpasswd/%s" .Host)) }}
 		auth_basic	"Restricted {{ .Host }}";
