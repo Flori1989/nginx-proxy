@@ -1,10 +1,13 @@
-![latest 0.7.0](https://img.shields.io/badge/latest-0.7.0-green.svg?style=flat)
-![nginx 1.14](https://img.shields.io/badge/nginx-1.14-brightgreen.svg) ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg) [![Build Status](https://travis-ci.org/jwilder/nginx-proxy.svg?branch=master)](https://travis-ci.org/jwilder/nginx-proxy) [![](https://img.shields.io/docker/stars/jwilder/nginx-proxy.svg)](https://hub.docker.com/r/jwilder/nginx-proxy 'DockerHub') [![](https://img.shields.io/docker/pulls/jwilder/nginx-proxy.svg)](https://hub.docker.com/r/jwilder/nginx-proxy 'DockerHub')
-
-
 nginx-proxy sets up a container running nginx and [docker-gen][1].  docker-gen generates reverse proxy configs for nginx and reloads nginx when containers are started and stopped.
 
 See [Automated Nginx Reverse Proxy for Docker][2] for why you might want to use this.
+
+### Notes
+This is a modified version of jwilder/nginx-proxy which adds the following features:
+* A Dockerfile for Raspberry Pi was added
+* A `VIRTUAL_PATH` environment variable was added for Path-based Routing
+
+**At the moment you have to download and build it yourself**
 
 ### Usage
 
