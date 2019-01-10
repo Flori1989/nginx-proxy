@@ -7,7 +7,6 @@ RUN apt-get update \
     ca-certificates \
     wget \
     golang-go \
-    git \
  && apt-get clean \
  && rm -r /var/lib/apt/lists/*
 
@@ -21,9 +20,6 @@ RUN export GOPATH="/go" \
  && go get -u github.com/ddollar/forego
  
 ENV PATH=$PATH:/go/bin
-
-# Remove go a git
-RUN apt-get purge -yq golang-go git
 
 ENV ARCH_VERSION armhf
 ENV DOCKER_GEN_VERSION 0.7.4

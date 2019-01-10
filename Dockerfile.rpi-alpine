@@ -3,7 +3,7 @@ LABEL maintainer="Jason Wilder mail@jasonwilder.com"
 
 # Install wget and install/updates certificates
 RUN apk add --no-cache --virtual .run-deps \
-    ca-certificates bash wget openssl \
+    ca-certificates bash wget openssl go \
     && update-ca-certificates
 
 
@@ -16,9 +16,6 @@ RUN export GOPATH="/go" \
  && go get -u github.com/ddollar/forego
  
 ENV PATH=$PATH:/go/bin
-
-# Remove go a git
-RUN apt-get purge -yq golang-go git
 
 ENV ARCH_VERSION armhf
 ENV DOCKER_GEN_VERSION 0.7.4
