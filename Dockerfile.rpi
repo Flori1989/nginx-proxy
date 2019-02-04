@@ -27,7 +27,9 @@ ENV DOCKER_GEN_VERSION 0.7.4
 RUN wget https://github.com/jwilder/docker-gen/releases/download/$DOCKER_GEN_VERSION/docker-gen-linux-armhf-$DOCKER_GEN_VERSION.tar.gz \
  && tar -C /usr/local/bin -xvzf docker-gen-linux-armhf-$DOCKER_GEN_VERSION.tar.gz \
  && rm /docker-gen-linux-armhf-$DOCKER_GEN_VERSION.tar.gz
+ 
 COPY network_internal.conf /etc/nginx/
+COPY uploadsize.conf /etc/nginx/conf.d/uploadsize.conf
 
 COPY . /app/
 WORKDIR /app/
